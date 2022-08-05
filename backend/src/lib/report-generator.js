@@ -193,6 +193,13 @@ expressions.filters.convertHTML = function(input, style) {
 expressions.filters.count = function(input, severity) {
     if(!input) return input;
     var count = 0;
+    if (!severity){
+    for (var i = 0; i < input.length; i++){
+        count += 1;
+    }
+        return count;
+    }
+    else{
 
     for(var i = 0; i < input.length; i++){
 
@@ -202,7 +209,9 @@ expressions.filters.count = function(input, severity) {
     }
 
     return count;
+   }
 }
+
 
 // Translate using locale from 'translate' folder
 // Example: {input | translate: 'fr'}
