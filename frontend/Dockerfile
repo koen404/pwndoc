@@ -10,7 +10,7 @@ RUN npm run build
 FROM nginx:stable-alpine
 COPY .docker/nginx.conf /etc/nginx/conf.d/default.conf
 RUN mkdir -p /etc/nginx/ssl
-COPY ssl/server* /etc/nginx/ssl/
+COPY ssl/* /etc/nginx/ssl/
 COPY --from=build /app/dist/spa /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
